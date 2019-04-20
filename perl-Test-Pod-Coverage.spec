@@ -18,6 +18,16 @@ BuildRequires : perl(Pod::Coverage)
 This module is used to add a test to your Perl distribution,
 which checks for pod coverage of all appropriate files.
 
+%package dev
+Summary: dev components for the perl-Test-Pod-Coverage package.
+Group: Development
+Provides: perl-Test-Pod-Coverage-devel = %{version}-%{release}
+Requires: perl-Test-Pod-Coverage = %{version}-%{release}
+
+%description dev
+dev components for the perl-Test-Pod-Coverage package.
+
+
 %prep
 %setup -q -n Test-Pod-Coverage-1.10
 
@@ -55,3 +65,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.28.2/Test/Pod/Coverage.pm
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Test::Pod::Coverage.3
