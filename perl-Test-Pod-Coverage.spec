@@ -4,12 +4,13 @@
 #
 Name     : perl-Test-Pod-Coverage
 Version  : 1.10
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
-Summary  : CPAN Test::Pod::Coverage module
+Summary  : 'Check for pod coverage in your distribution'
 Group    : Development/Tools
 License  : Artistic-2.0
+Requires: perl-Test-Pod-Coverage-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::Symdump)
 BuildRequires : perl(Pod::Coverage)
@@ -28,14 +29,24 @@ Requires: perl-Test-Pod-Coverage = %{version}-%{release}
 dev components for the perl-Test-Pod-Coverage package.
 
 
+%package perl
+Summary: perl components for the perl-Test-Pod-Coverage package.
+Group: Default
+Requires: perl-Test-Pod-Coverage = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-Pod-Coverage package.
+
+
 %prep
 %setup -q -n Test-Pod-Coverage-1.10
+cd %{_builddir}/Test-Pod-Coverage-1.10
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -45,7 +56,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -65,8 +76,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/Pod/Coverage.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Pod::Coverage.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/Pod/Coverage.pm
