@@ -4,16 +4,18 @@
 #
 Name     : perl-Test-Pod-Coverage
 Version  : 1.10
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Summary  : 'Check for pod coverage in your distribution'
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Test-Pod-Coverage-perl = %{version}-%{release}
+Requires: perl(Pod::Parser)
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Devel::Symdump)
 BuildRequires : perl(Pod::Coverage)
+BuildRequires : perl(Pod::Parser)
 
 %description
 This module is used to add a test to your Perl distribution,
