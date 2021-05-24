@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Pod-Coverage
 Version  : 1.10
-Release  : 16
+Release  : 17
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Summary  : 'Check for pod coverage in your distribution'
@@ -85,4 +85,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/Test/Pod/Coverage.pm
+/usr/lib/perl5/vendor_perl/5.34.0/Test/Pod/Coverage.pm
