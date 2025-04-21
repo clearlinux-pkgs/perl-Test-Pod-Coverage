@@ -7,7 +7,7 @@
 #
 Name     : perl-Test-Pod-Coverage
 Version  : 1.10
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Test-Pod-Coverage-1.10.tar.gz
 Summary  : 'Check for pod coverage in your distribution'
